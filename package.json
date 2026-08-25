@@ -1,0 +1,14 @@
+{
+  "name": "clothing-shop-bot",
+  "version": "1.0.0",
+  "description": "Facebook Messenger AI chatbot for a clothing shop, powered by Claude",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "body-parser": "^1.20.2",
+    "node-fetch": "^2.7.0"
+  }
+}
