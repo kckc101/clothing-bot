@@ -114,7 +114,7 @@ async function askGemini(userMessage) {
 
 // ---------- Send message via Messenger ----------
 async function sendMessage(recipientId, text) {
-  await fetch(
+  const response = await fetch(
     `https://graph.facebook.com/v21.0/me/messages?access_token=${PAGE_ACCESS_TOKEN}`,
     {
       method: "POST",
@@ -125,6 +125,12 @@ async function sendMessage(recipientId, text) {
       }),
     }
   );
+  const data = await response.json();
+  if (data.error) {
+    console.error("SEND MESSAGE FAILED:", JSON.stringify(data));
+  } else {
+    console.log("Message sent successfully:", JSON.stringify(data));
+  }
 }
 
 const PORT = process.env.PORT || 3000;
